@@ -23,7 +23,7 @@ COPY . .
 
 # Inject .env from CI secret (do NOT commit .env to the repository)
 ARG ENV
-RUN echo "$ENV" > /app/.env
+RUN printf "%s" "$ENV" > /app/.env
 
 # Expose the port (default FastAPI/uvicorn port)
 EXPOSE 8000
